@@ -3,10 +3,10 @@ import CodeSnippet from "../components/CodeSnippet";
 import bentoSecurity from "../assets/bento-03-security.png";
 import bentoPerformance from "../assets/bento-03-performance.png";
 
-const ButtonWithLinkTag = ({ btnText = "Button" }) => {
+const ButtonWithLinkTag = ({ btnText = "Button", to = "/" }) => {
     return (
         <button className="bg-gray-200 dark:bg-gray-700 text-gray-900 dark:text-gray-100 rounded-md px-3 py-2 text-sm font-medium hover:bg-gray-100 dark:hover:bg-gray-800 transition">
-            <Link to={"/blog"}>{btnText}</Link>{" "}
+            <Link to={to}>{btnText}</Link>{" "}
         </button>
     );
 };
@@ -42,7 +42,10 @@ export default function Home() {
                                     />
                                 </div>
                                 <div className="flex justify-center pt-4">
-                                    <ButtonWithLinkTag btnText="About me" />
+                                    <ButtonWithLinkTag
+                                        btnText="About me"
+                                        to="/about"
+                                    />
                                 </div>
                             </div>
                         </div>
@@ -68,7 +71,10 @@ export default function Home() {
                                     />
                                 </div>
                                 <div className="flex justify-center">
-                                    <ButtonWithLinkTag btnText="My Blogs" />
+                                    <ButtonWithLinkTag
+                                        btnText="My Blogs"
+                                        to="/blog"
+                                    />
                                 </div>
                             </div>
                         </div>
@@ -88,7 +94,10 @@ export default function Home() {
                                 </p>
                                 <CodeSnippet />
                                 <div className="flex justify-center">
-                                    <ButtonWithLinkTag btnText="Projects" />
+                                    <ButtonWithLinkTag
+                                        btnText="Projects"
+                                        to="/experience"
+                                    />
                                 </div>
                             </div>
                         </div>

@@ -9,7 +9,6 @@ const ThemeContextProvider = ({ children }) => {
     };
 
     useEffect(() => {
-        console.log({ darkModeEnabled });
         if (darkModeEnabled) {
             document.documentElement.classList.add("dark");
         } else {
