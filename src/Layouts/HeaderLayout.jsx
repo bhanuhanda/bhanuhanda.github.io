@@ -1,5 +1,5 @@
 import React from "react";
-import Header from "../components/Header";
+import Header from "../components/NavHeader";
 import { Outlet } from "react-router-dom";
 import StickyDarkModeToggle from "../components/StickyDarkModeToggle";
 

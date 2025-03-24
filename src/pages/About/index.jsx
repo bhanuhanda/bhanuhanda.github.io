@@ -1,65 +1,15 @@
-import { useContext } from "react";
-import ThemeContext from "../context/ThemeContext";
-
 import {
     CloudArrowUpIcon,
     LockClosedIcon,
     ServerIcon,
 } from "@heroicons/react/20/solid";
-// tech icons
-import htmlLight from "../assets/tech-svgs/html-light.svg";
-import htmlDark from "../assets/tech-svgs/html-dark.svg";
-import cssLight from "../assets/tech-svgs/css-light.svg";
-import cssDark from "../assets/tech-svgs/css-dark.svg";
-import js from "../assets/tech-svgs/js.svg";
-import ts from "../assets/tech-svgs/ts.svg";
-import psql from "../assets/tech-svgs/psql.svg";
-import nodeLight from "../assets/tech-svgs/nodejs-light.svg";
-import nodeDark from "../assets/tech-svgs/nodejs-dark.svg";
-import docker from "../assets/tech-svgs/docker.svg";
-import graphql from "../assets/tech-svgs/graphql.svg";
-import reactLogo from "../assets/tech-svgs/react.svg";
-// import gitlab from "../assets/tech-svgs/gitlab.svg";
+import BackgroundSVG from "./BackgroundSVG";
+import TechLogosGrid from "./TechLogosGrid";
 
 export default function About() {
-    const { darkModeEnabled } = useContext(ThemeContext);
     return (
         <div className="w-full relative isolate overflow-hidden bg-white dark:bg-gray-900 px-6 py-24 sm:py-32 lg:overflow-visible lg:px-0">
-            <div className="absolute inset-0 -z-10 overflow-hidden">
-                <svg
-                    aria-hidden="true"
-                    className="absolute top-0 left-[max(50%,25rem)] h-[64rem] w-[128rem] -translate-x-1/2 stroke-gray-200 dark:stroke-gray-700 [mask-image:radial-gradient(64rem_64rem_at_top,white,transparent)]"
-                >
-                    <defs>
-                        <pattern
-                            x="50%"
-                            y={-1}
-                            id="e813992c-7d03-4cc4-a2bd-151760b470a0"
-                            width={200}
-                            height={200}
-                            patternUnits="userSpaceOnUse"
-                        >
-                            <path d="M100 200V.5M.5 .5H200" fill="none" />
-                        </pattern>
-                    </defs>
-                    <svg
-                        x="50%"
-                        y={-1}
-                        className="overflow-visible fill-gray-50 dark:fill-gray-800"
-                    >
-                        <path
-                            d="M-100.5 0h201v201h-201Z M699.5 0h201v201h-201Z M499.5 400h201v201h-201Z M-300.5 600h201v201h-201Z"
-                            strokeWidth={0}
-                        />
-                    </svg>
-                    <rect
-                        fill="url(#e813992c-7d03-4cc4-a2bd-151760b470a0)"
-                        width="100%"
-                        height="100%"
-                        strokeWidth={0}
-                    />
-                </svg>
-            </div>
+            <BackgroundSVG />
             <div className="mx-auto grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 lg:mx-0 lg:max-w-none lg:grid-cols-2 lg:items-start lg:gap-y-10">
                 <div className="lg:col-span-2 lg:col-start-1 lg:row-start-1 lg:mx-auto lg:grid lg:w-full lg:max-w-7xl lg:grid-cols-2 lg:gap-x-8 lg:px-8">
                     <div className="lg:pr-4">
@@ -80,60 +30,7 @@ export default function About() {
                         </div>
                     </div>
                 </div>
-                <div className="-mt-12 -ml-12 p-12 lg:sticky lg:top-4 lg:col-start-2 lg:row-span-2 lg:row-start-1 lg:overflow-hidden">
-                    <div className="sm:py-4 lg:py-16">
-                        <div className="mx-auto max-w-2xl px-6 lg:px-8">
-                            <div className="mx-auto mt-10 grid max-w-lg items-center gap-x-4 gap-y-24 sm:max-w-xl sm:grid-cols-3 sm:gap-x-4">
-                                <img
-                                    alt="React"
-                                    src={reactLogo}
-                                    className="col-span-2 max-h-20 w-full object-contain lg:col-span-1"
-                                />
-                                <img
-                                    alt="JS"
-                                    src={js}
-                                    className="col-span-2 max-h-20 w-full object-contain lg:col-span-1"
-                                />
-                                <img
-                                    alt="HTML"
-                                    src={darkModeEnabled ? htmlDark : htmlLight}
-                                    className="col-span-2 max-h-20 w-full object-contain lg:col-span-1"
-                                />
-                                <img
-                                    alt="CSS"
-                                    src={darkModeEnabled ? cssDark : cssLight}
-                                    className="col-span-2 max-h-20 w-full object-contain lg:col-span-1"
-                                />
-                                <img
-                                    alt="Node"
-                                    src={darkModeEnabled ? nodeDark : nodeLight}
-                                    className="col-span-2 max-h-20 w-full object-contain lg:col-span-1"
-                                />
-                                <img
-                                    alt="TS"
-                                    src={ts}
-                                    className="col-span-2 max-h-20 w-full object-contain lg:col-span-1"
-                                />
-
-                                <img
-                                    alt="PSQL"
-                                    src={psql}
-                                    className="col-span-2 max-h-20 w-full object-contain lg:col-span-1"
-                                />
-                                <img
-                                    alt="DOCKER"
-                                    src={docker}
-                                    className="col-span-2 max-h-20 w-full object-contain lg:col-span-1"
-                                />
-                                <img
-                                    alt="GQL"
-                                    src={graphql}
-                                    className="col-span-2 max-h-20 w-full object-contain lg:col-span-1"
-                                />
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                <TechLogosGrid />
                 <div className="lg:col-span-2 lg:col-start-1 lg:row-start-2 lg:mx-auto lg:grid lg:w-full lg:max-w-7xl lg:grid-cols-2 lg:gap-x-8 lg:px-8">
                     <div className="lg:pr-4">
                         <div className="max-w-xl text-base/7 text-gray-700 dark:text-gray-300 lg:max-w-lg">

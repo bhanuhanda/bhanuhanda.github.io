@@ -3,13 +3,17 @@
 @custom-variant dark (&:where(.dark, .dark *));
 
 .bento-grid-card-outer-container {
-    @apply relative flex h-full flex-col overflow-hidden;
+  @apply relative flex h-full flex-col overflow-hidden;
 }
 
 .bento-grid-card-inner-container {
-    @apply sm:px-10 sm:py-8;
+  @apply sm:px-10 sm:py-8;
 }
 
 .bento-grid-card-heading {
-    @apply py-4 text-2xl font-medium tracking-tight text-gray-950 dark:text-white max-md:text-center
+  @apply py-4 text-2xl font-medium tracking-tight text-gray-950 dark:text-white max-md:text-center
+}
+  
+.about-page-tech-logos-grid-svg {
+  @apply col-span-2 max-h-20 w-full object-contain lg:col-span-1;
 }
