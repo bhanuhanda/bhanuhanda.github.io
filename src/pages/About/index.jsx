@@ -8,12 +8,12 @@ import TechLogosGrid from "./TechLogosGrid";
 
 export default function About() {
     return (
-        <div className="w-full relative isolate overflow-hidden bg-white dark:bg-gray-900 px-6 py-24 sm:py-32 lg:overflow-visible lg:px-0">
+        <div className="w-full relative isolate overflow-hidden bg-white dark:bg-gray-900 px-6 sm:py-12 lg:overflow-visible lg:px-0">
             <BackgroundSVG />
-            <div className="mx-auto grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 lg:mx-0 lg:max-w-none lg:grid-cols-2 lg:items-start lg:gap-y-10">
-                <div className="lg:col-span-2 lg:col-start-1 lg:row-start-1 lg:mx-auto lg:grid lg:w-full lg:max-w-7xl lg:grid-cols-2 lg:gap-x-8 lg:px-8">
+            <div className="mx-auto grid grid-cols-1 gap-x-8 gap-y-16 lg:mx-0 lg:grid-cols-5 lg:items-start lg:gap-y-10">
+                <div className="lg:col-span-3 lg:gap-x-8 lg:px-8">
                     <div className="lg:pr-4">
-                        <div className="lg:max-w-lg">
+                        <div>
                             <p className="text-base/7 font-semibold text-indigo-400">
                                 A Developer
                             </p>
@@ -30,10 +30,12 @@ export default function About() {
                         </div>
                     </div>
                 </div>
-                <TechLogosGrid />
-                <div className="lg:col-span-2 lg:col-start-1 lg:row-start-2 lg:mx-auto lg:grid lg:w-full lg:max-w-7xl lg:grid-cols-2 lg:gap-x-8 lg:px-8">
+                <div className="-mt-12 -ml-12 p-12 lg:sticky lg:top-4 lg:col-start-4 lg:col-span-2 lg:row-span-2 lg:overflow-hidden">
+                    <TechLogosGrid />
+                </div>
+                <div className="lg:col-span-3 lg:mx-auto lg:gap-x-8 lg:px-8">
                     <div className="lg:pr-4">
-                        <div className="max-w-xl text-base/7 text-gray-700 dark:text-gray-300 lg:max-w-lg">
+                        <div className="text-base/7 text-gray-700 dark:text-gray-300">
                             <p>
                                 One of my proud projects is a cutting-edge
                                 educational platform that runs in US district
@@ -103,19 +105,25 @@ export default function About() {
                                     </span>
                                 </li>
                             </ul>
-                            {/* <h2 className="mt-16 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
-                                No server? No problem.
+                            <h2 className="mt-16 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
+                                Tech Stack
                             </h2>
-                            <p className="mt-6">
-                                Id orci tellus laoreet id ac. Dolor, aenean leo,
-                                ac etiam consequat in. Convallis arcu ipsum urna
-                                nibh. Pharetra, euismod vitae interdum mauris
-                                enim, consequat vulputate nibh. Maecenas
-                                pellentesque id sed tellus mauris, ultrices
-                                mauris. Tincidunt enim cursus ridiculus mi.
-                                Pellentesque nam sed nullam sed diam turpis
-                                ipsum eu a sed convallis diam.
-                            </p> */}
+                            <ul className="mt-6 ml-6 list-disc">
+                                <li>
+                                    React, Redux, JavaScript, TypeScript, HTML,
+                                    CSS
+                                </li>
+                                <li>
+                                    Accessibility, Jest, RTL, Cypress, Webpack,
+                                    Babel
+                                </li>
+                                <li>
+                                    NodeJS, GraphQL, Postgres, Prisma,
+                                    ElasticSearch
+                                </li>
+                                <li>Keycloak, SSO, NPM, Eslint, Docker, Git</li>
+                                <li>Data Structures & Algorithms, Agile</li>
+                            </ul>
                         </div>
                     </div>
                 </div>

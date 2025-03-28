@@ -2,10 +2,22 @@ import { Link } from "react-router-dom";
 import CodeSnippet from "../components/CodeSnippet";
 import bentoSecurity from "../assets/bento-03-security.png";
 import bentoPerformance from "../assets/bento-03-performance.png";
+import { classNames } from "../utils/helper";
 
-const ButtonWithLinkTag = ({ btnText = "Button", to = "/" }) => {
+const ButtonWithLinkTag = ({
+    btnText = "Button",
+    to = "/",
+    primary = false,
+}) => {
     return (
-        <button className="bg-gray-200 dark:bg-gray-700 text-gray-900 dark:text-gray-100 rounded-md px-3 py-2 text-sm font-medium hover:bg-gray-100 dark:hover:bg-gray-800 transition">
+        <button
+            className={classNames(
+                primary
+                    ? "animate-pulse ring-2 ring-indigo-400 bg-gray-200"
+                    : "bg-gray-200",
+                " dark:bg-gray-700 text-gray-900 dark:text-gray-100 rounded-md px-5 py-2 text-sm font-medium hover:bg-gray-100 dark:hover:bg-gray-800 transition cursor-pointer"
+            )}
+        >
             <Link to={to}>{btnText}</Link>
         </button>
     );
@@ -76,7 +88,11 @@ export default function Home() {
                             />
                         </div>
                         <div className="flex justify-center pt-4">
-                            <ButtonWithLinkTag btnText="About me" to="/about" />
+                            <ButtonWithLinkTag
+                                btnText="About me"
+                                to="/about"
+                                primary={true}
+                            />
                         </div>
                     </BentoCard>
 

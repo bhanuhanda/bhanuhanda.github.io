@@ -8,6 +8,7 @@ import { FiGithub, FiLinkedin } from "react-icons/fi";
 import signDark from "../assets/sign-dark.png";
 import signLight from "../assets/sign-light.png";
 import ThemeContext from "../context/ThemeContext";
+import { classNames } from "../utils/helper";
 
 // Navigation items
 const navigation = [
@@ -29,11 +30,6 @@ const styles = {
     socialLink:
         "text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-300",
 };
-
-// Utility to join class names
-function classNames(...classes) {
-    return classes.filter(Boolean).join(" ");
-}
 
 // Reusable NavItem component
 const NavItem = ({ item, mobile }) => {
