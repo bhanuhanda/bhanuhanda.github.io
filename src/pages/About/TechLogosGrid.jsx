@@ -53,7 +53,7 @@ export default function TechLogosGrid() {
                         <img
                             alt={img.altText}
                             src={getImageURL(`${img.name}`)}
-                            className="about-page-tech-logos-grid-svg"
+                            className="col-span-2 max-h-20 w-full object-contain lg:col-span-1"
                         />
                     ))}
                 </div>

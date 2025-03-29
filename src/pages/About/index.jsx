@@ -10,48 +10,35 @@ export default function About() {
     return (
         <div className="w-full relative isolate overflow-hidden bg-white dark:bg-gray-900 px-6 sm:py-12 lg:overflow-visible lg:px-0">
             <BackgroundSVG />
-            <div className="mx-auto grid grid-cols-1 gap-x-8 gap-y-16 lg:mx-0 lg:grid-cols-5 lg:items-start lg:gap-y-10">
-                <div className="lg:col-span-3 lg:gap-x-8 lg:px-8">
-                    <div className="lg:pr-4">
-                        <div>
-                            <p className="text-base/7 font-semibold text-indigo-400">
-                                A Developer
-                            </p>
-                            <h1 className="mt-2 font-semibold tracking-tight text-pretty text-gray-900 dark:text-white sm:text-3xl">
-                                Bringing Impact by Building Products
-                            </h1>
-                            <p className="mt-6 text-xl/8 text-gray-700 dark:text-gray-300">
-                                I have worked extensively on developing
-                                scalable, high-performance web applications
-                                across Ed-Tech, Fin-Tech and Supply Chain
-                                domains, implementing performance optimisation
-                                features while prioritising accessibility.
-                            </p>
-                        </div>
-                    </div>
+            <div className="mx-auto lg:px-8 grid grid-cols-1 gap-x-8 lg:mx-0 lg:grid-cols-5 lg:items-start lg:gap-y-8">
+                <div className="lg:col-span-3">
+                    <p className="text-2xl tracking-wide italic text-indigo-500">
+                        An Engineer
+                    </p>
+                    <h1 className="mt-2 font-normal text-pretty text-gray-900 dark:text-white sm:text-4xl">
+                        Bringing Impact by learning & building
+                    </h1>
+                    <p className="mt-4 text-xl/8 text-gray-500">
+                        Experienced in developing scalable, accessible &
+                        high-performance web applications across Education,
+                        Finance and Supply Chain domains.
+                    </p>
                 </div>
-                <div className="-mt-12 -ml-12 p-12 lg:sticky lg:top-4 lg:col-start-4 lg:col-span-2 lg:row-span-2 lg:overflow-hidden">
+                <div className="lg:sticky lg:col-start-4 lg:col-span-2 lg:row-span-2 lg:overflow-hidden">
                     <TechLogosGrid />
                 </div>
                 <div className="lg:col-span-3 lg:mx-auto lg:gap-x-8 lg:px-8">
                     <div className="lg:pr-4">
-                        <div className="text-base/7 text-gray-700 dark:text-gray-300">
+                        <div className="text-lg/7 text-gray-900 dark:text-gray-50">
                             <p>
-                                One of my proud projects is a cutting-edge
-                                educational platform that runs in US district
-                                schools, enhancing the learning experience for
-                                teachers and students in K-5 and middle schools
-                                by developing key modules—such as assignments,
-                                resources, glossaries, and dashboards—that
-                                supports millions of active user base of
-                                teachers and students.
+                                One of my proud projects is an educational
+                                platform that runs in US district schools,
+                                enhancing the learning experience for teachers
+                                and students in K-5 and middle schools by
+                                developing key modules—such as assignments,
+                                resources, glossary, and dashboards that
+                                supports millions of active user base.
                             </p>
-
-                            {/* <p className="mt-8">
-                                I have a strong track record of collaborating
-                                with Product, Design, and Architecture teams to
-                                brainstorm and execute innovative solutions.
-                            </p> */}
                             <ul
                                 role="list"
                                 className="mt-8 space-y-8 text-gray-600 dark:text-gray-300"
@@ -81,9 +68,10 @@ export default function About() {
                                         <strong className="font-semibold text-gray-900 dark:text-white">
                                             Collaborative
                                         </strong>{" "}
-                                        I have a strong track record of
-                                        collaborating with Product, Design, and
-                                        Architecture teams to brainstorm and
+                                        I have a received appreciation from
+                                        stakeholders for my collaborative ways
+                                        of working across Product, Design, and
+                                        Architects & devs for brainstorming and
                                         execute innovative solutions.
                                     </span>
                                 </li>
@@ -94,18 +82,18 @@ export default function About() {
                                     />
                                     <span>
                                         <strong className="font-semibold text-gray-900 dark:text-white">
-                                            Scalabale & Maintainable Coding
+                                            Scalable & Maintainable Coding
                                             Practices
                                         </strong>{" "}
                                         I have built robust React applications
-                                        capable of handling millions of records,
-                                        multi-step forms, and complex data
-                                        tables, as well as creating custom
+                                        capable of handling huge number of
+                                        records, multi-step forms, and complex
+                                        data tables, as well as creating custom
                                         component libraries.
                                     </span>
                                 </li>
                             </ul>
-                            <h2 className="mt-16 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
+                            {/* <h2 className="mt-16 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
                                 Tech Stack
                             </h2>
                             <ul className="mt-6 ml-6 list-disc">
@@ -123,7 +111,7 @@ export default function About() {
                                 </li>
                                 <li>Keycloak, SSO, NPM, Eslint, Docker, Git</li>
                                 <li>Data Structures & Algorithms, Agile</li>
-                            </ul>
+                            </ul> */}
                         </div>
                     </div>
                 </div>

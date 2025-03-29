@@ -3,6 +3,7 @@ import CodeSnippet from "../components/CodeSnippet";
 import bentoSecurity from "../assets/bento-03-security.png";
 import bentoPerformance from "../assets/bento-03-performance.png";
 import { classNames } from "../utils/helper";
+import BackgroundSVG from "./About/BackgroundSVG";
 
 const ButtonWithLinkTag = ({
     btnText = "Button",
@@ -62,7 +63,8 @@ const BentoCard = ({ variant = "middle", children }) => {
 
 export default function Home() {
     return (
-        <div className="bg-gray-50 dark:bg-gray-900 sm:py-20 w-full">
+        <div className=" w-full relative isolate overflow-hidden bg-white dark:bg-gray-900 px-6 sm:py-12 lg:overflow-visible lg:px-0">
+            <BackgroundSVG />
             <div className="mx-auto max-w-2xl px-6 md:max-w-7xl md:px-8">
                 <h2 className="text-center text-2xl tracking-wide text-indigo-600 dark:text-indigo-400">
                     Hi there,
@@ -70,13 +72,13 @@ export default function Home() {
                 <p className="mx-auto mt-2 max-w-xl text-center text-4xl font-light text-balance text-gray-950 dark:text-white sm:text-5xl">
                     I'm a software engineer with 5 years of experience
                 </p>
-                <div className="mt-10 grid gap-4 sm:mt-16 md:grid-cols-3">
+                <div className="mt-10 grid gap-5 sm:mt-16 md:grid-cols-3">
                     {/* Left Bento Card */}
                     <BentoCard variant="left">
                         <p className="bento-grid-card-heading">
                             Knack for perfection
                         </p>
-                        <p className="mt-2 max-w-lg text-sm/6 text-gray-600 dark:text-gray-300 max-md:text-center">
+                        <p className="bento-grid-card-subHeading">
                             Discover my passion for technology and learn more
                             about my background.
                         </p>
@@ -101,7 +103,7 @@ export default function Home() {
                         <p className="bento-grid-card-heading">
                             Performance & Scalability
                         </p>
-                        <p className="mt-2 max-w-lg text-sm/6 text-gray-600 dark:text-gray-300 max-md:text-center">
+                        <p className="bento-grid-card-subHeading">
                             Dive into blog posts covering system architecture,
                             design, and innovative tools.
                         </p>
@@ -122,7 +124,7 @@ export default function Home() {
                         <p className="bento-grid-card-heading">
                             Work Experience
                         </p>
-                        <p className="mt-2 max-w-lg text-sm/6 text-gray-600 dark:text-gray-300 max-md:text-center">
+                        <p className="bento-grid-card-subHeading">
                             Explore my professional experience and projects that
                             demonstrate my skills.
                         </p>
