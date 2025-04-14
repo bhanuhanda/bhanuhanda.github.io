@@ -3,7 +3,9 @@ import HeaderLayout from "./Layouts/HeaderLayout";
 import Home from "./pages/Home";
 import About from "./pages/About/index";
 import Experience from "./pages/Experience";
-import Blog from "./pages/Blog";
+// import Blog from "./pages/Blog";
+// import BlogPost from "./pages/BlogPost";
+import ComingSoon from "./components/ComingSoon";
 import NotFoundPage from "./pages/NotFoundPage";
 
 function App() {
@@ -12,10 +14,11 @@ function App() {
             <Routes>
                 <Route path="/" element={<HeaderLayout />}>
                     <Route index element={<Home />} />
-                    <Route index path="about" element={<About />} />
-                    <Route index path="experience" element={<Experience />} />
-                    <Route index path="blog" element={<Blog />} />
-                    <Route index path="*" element={<NotFoundPage />} />
+                    <Route path="about" element={<About />} />
+                    <Route path="experience" element={<Experience />} />
+                    <Route path="blog" element={<ComingSoon />} />
+                    <Route path="blog/:slug" element={<ComingSoon />} />
+                    <Route path="*" element={<NotFoundPage />} />
                 </Route>
             </Routes>
         </BrowserRouter>

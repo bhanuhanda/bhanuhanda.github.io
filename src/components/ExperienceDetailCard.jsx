@@ -1,7 +1,6 @@
 import { getImageURL } from "../utils/helper";
 
 export default function ExperienceDetailCard({ details }) {
-    console.log(getImageURL(details.imgName));
     return (
         <div className="bg-white shadow-md dark:bg-gray-900 rounded-xl">
             <div className="mx-auto grid md:grid-cols-5 gap-x-8 gap-y-16 px-4 pt-12 pb-6 lg:min-w-full lg:px-8">
