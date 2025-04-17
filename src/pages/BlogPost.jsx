@@ -60,30 +60,32 @@ const BlogPost = () => {
   const { title, description, date, author, coverImage } = frontmatter;
 
   return (
-    <article className="max-w-3xl px-4 lg:px-0 mx-auto pt-16 pb-32 text-base text-zinc-800 dark:text-zinc-100">
-      <header className="mb-12 text-center">
-        <div className="text-sm uppercase tracking-wider text-zinc-500 dark:text-zinc-400">
-          {date} · {author}
-        </div>
-        <h1 className="text-4xl font-semibold mt-2 text-zinc-900 dark:text-white">
-          {title}
-        </h1>
-        <p className="mt-4 text-zinc-600 dark:text-zinc-300">{description}</p>
-        {coverImage && (
-          <img
-            src={coverImage}
-            alt={title}
-            className="rounded-2xl mt-8 mx-auto max-h-[400px] object-cover w-full"
-          />
-        )}
-      </header>
+    <div className='bg-white dark:bg-gray-800 w-full'>
+      <article className="max-w-3xl px-4 lg:px-0 mx-auto pt-16 pb-32 text-base text-zinc-800 dark:text-zinc-100 ">
+        <header className="mb-12 text-center">
+          <div className="text-sm uppercase tracking-wider text-zinc-500 dark:text-zinc-400">
+            {date} · {author}
+          </div>
+          <h1 className="text-4xl font-semibold mt-2 text-zinc-900 dark:text-white">
+            {title}
+          </h1>
+          <p className="mt-4 text-zinc-600 dark:text-zinc-300">{description}</p>
+          {coverImage && (
+            <img
+              src={coverImage}
+              alt={title}
+              className="rounded-2xl mt-8 mx-auto max-h-[400px] object-cover w-full"
+            />
+          )}
+        </header>
 
-      <section className="prose dark:prose-invert prose-zinc max-w-none">
-      <MDXProvider>
-        {MdxModule && <MdxModule />}
-      </MDXProvider>
-      </section>
-    </article>
+        <section className="prose dark:prose-invert prose-zinc max-w-none prose-headings:dark:text-green-200">
+          <MDXProvider>
+            {MdxModule && <MdxModule />}
+          </MDXProvider>
+        </section>
+      </article>
+    </div>
   );
 };
 
