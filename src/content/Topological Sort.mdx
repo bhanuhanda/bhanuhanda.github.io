@@ -1,0 +1,144 @@
+---
+title: "Topological Sort & Linear Ordering of Graphs"
+description: "Understanding the need & intuition"
+author: "Bhanu Handa"
+date: "April 19, 2025"
+category: "DSA"
+tags: ["Graphs"]
+coverImage: "https://images.unsplash.com/photo-1655890006065-edefcd764af6"
+---
+
+Topological sort is a fundamental graph-theoretic tool for imposing a linear ordering on the vertices of a Directed Acyclic Graph (DAG) so that every directed edge `u → v` has `u` before `v` in the order. At its heart lies the concept of in‑degree—the count of incoming edges per vertex—which lets us iteratively peel off vertices with no unmet dependencies.
+
+DAGs capture partial orders—not every pair of vertices is comparable—a topological sort extends them to a total (linear) order consistent with the original dependencies.
+
+## Real world examples
+- **Task Scheduling**: If certain jobs must finish before others start (e.g., wash clothes before drying), a topological ordering yields a valid execution sequence.
+- **Build Systems & Makefiles**: Compiling modules with interdependencies follows the same pattern—compile dependencies first.
+- **Data Serialization & Database Loading**: Loading tables with foreign-key constraints requires parents before children.
+- **Project Management (PERT/CPM)**: Milestones and tasks form a DAG whose topological sort helps find the critical path.
+
+## Linear Ordering Need
+A partial order defines “must come before” constraints but leaves some pairs unordered; a linear (total) order fully arranges all elements while respecting those constraints. In topological sort, we convert the partial order of the DAG into such a linear ordering—crucial for any problem where every element eventually needs placement in a single sequence.
+
+## Core Logic (Intuition)
+1. **Compute In-Degrees:** For each vertex, count how many edges point into it. This in-degree represents the number of unmet prerequisites.
+2. **Initialize Queue of “Ready” Vertices:** Enqueue all vertices whose in-degree is 0—i.e., those with no prerequisites.
+3. **Iteratively Peel Off Ready Vertices:**
+    - Dequeue one vertex, append it to the ordering.
+    - “Remove” it conceptually by decrementing the in-degree of all its outgoing neighbors.
+    - Any neighbor whose in-degree drops to 0 becomes ready; enqueue it.
+4. **Detect Cycles:** If the graph has a cycle, you'll exhaust the queue before including all vertices—signaling that no valid ordering exists.
+
+This **BFS-style** approach (Kahn's algorithm) builds the linear order one “layer” at a time, always choosing vertices whose dependencies are already satisfied.
+
+## Building Intuition Through Variation Examples
+
+### Course Schedule Variant
+- **Vertices:** Courses; **Edges:** Prerequisite relations (course A → course B means A before B).
+- **Process:** Start with all courses having no prerequisites (in-degree 0) and then “unlock” dependent courses as you “take” each one. Visualizing the course graph and watching those in-degree counters drop helps cement the pattern.
+```JS
+function courseSchedule(num, preRequisites) {
+    const depsGraph = new Map();
+    const inDegree = new Array(num).fill(0);
+
+    for(const [course, preReq] of preRequisites) {
+        inDegree[course]++;
+        if(!depsGraph.has(preReq)) {
+            depsGraph.set(preReq, [course]);
+        } else {
+            depsGraph.set(preReq, [...depsGraph.get(preReq), course]);
+        }
+    }
+
+    const queue = []
+    for(let i=0; i<num; i++) {
+        if(inDegree[i] === 0) {
+            queue.push(i);
+        }
+    }
+
+    const linearOrdering = []
+
+    while(queue.length) {
+        const course = queue.shift();
+        linearOrdering.push(course);
+
+        const neighbors = depsGraph.get(course) || [];
+        for(const neighbor of neighbors) {
+            inDegree[neighbor]--;
+            if(inDegree[neighbor] === 0) queue.push(neighbor);
+        }
+    }
+
+    return linearOrdering.length === num ? linearOrdering : [];
+}
+
+console.log(courseSchedule(4, [[1, 0], [2, 0], [3, 1], [3, 2]]))
+console.log(courseSchedule(4, [[1, 0], [0, 1], [3, 1], [3, 2]]))
+```
+
+### Alien Dictionary Variant
+- **Setup:** Given words sorted lexicographically in an unknown alphabet, infer the alphabet's order.
+- **Step 1:** Compare each adjacent word pair to find the first differing character; add an edge from the earlier to the later character (e.g., if “ab” comes before “ac”, add edge b→c).
+- **Step 2:** Apply topological sort on this character-graph. The resulting order is the inferred alphabet.
+```JS
+function extraterrestrialLanguage(words) {
+  const adjList = {};
+  const inDegree = {};
+
+  // initialising
+  for (const word of words) {
+    for (const char of word) {
+      if (!inDegree[char]) {
+        inDegree[char] = 0;
+        adjList[char] = [];
+      }
+    }
+  }
+
+  for (let i = 0; i < words.length - 1; i++) {
+    const word1 = words[i];
+    const word2 = words[i + 1];
+
+    if (word1.length > word2.length && word1.indexOf(word2) === 0) {
+      return "";
+    }
+
+    for (let j = 0; j < Math.min(word1.length, word2.length); j++) {
+      if (word1[j] !== word2[j]) {
+        adjList[word1[j]].push(word2[j]);
+        inDegree[word2[j]]++;
+        break;
+      }
+    }
+  }
+
+  const linearOrdering = [],
+    queue = [];
+
+  for (const vertex in inDegree) {
+    if (inDegree[vertex] === 0) {
+      queue.push(vertex);
+    }
+  }
+
+  while (queue.length) {
+    const vertex = queue.shift();
+    linearOrdering.push(vertex);
+
+    for (const neighbor of adjList[vertex]) {
+      inDegree[neighbor]--;
+      if (inDegree[neighbor] === 0) {
+        queue.push(neighbor);
+      }
+    }
+  }
+
+  if (linearOrdering.length < Object.keys(adjList).length) {
+    return "";
+  }
+
+  return linearOrdering.join("");
+}
+```
