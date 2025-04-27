@@ -7,41 +7,53 @@ category: "Web Dev"
 tags: ["A11y"]
 coverImage: "https://images.unsplash.com/photo-1576864333223-db90dadfb975"
 ---
+## Building an Accessible custom select component with vanilla js
+#### Diagram
+![Diagram](/src/content/media/custom-select-a11y.png)
+#### Code Sandbox
+https://codesandbox.io/embed/mw349w?view=preview
 
-## tools
-	- chrome lighthouse (not fully useful)
+## resources
+	- [RSC_23min](https://youtu.be/VyWRmepESoQ?si=ydEtvTwmZ9D4MlMH)
+	- [WDS_13min](https://youtu.be/1A6SrPwmGpg?si=0BycOeGqJp9hLCsJ)
+	- [JSer_Tabs_43min](https://youtu.be/QKlJNuckVcU?si=9HjF374H_CYMO2la)
+	- [WDS_37min](https://youtu.be/2oiBKSjOOFE?si=FS9BwpnOq3eiSzmX)
+	- [Rob_Dodson_playlist](https://youtube.com/playlist?list=PLNYkxOF6rcICWx0C9LVWWVqvHlYJyqw7g&si=S-aokaqe6DcunXkf) (completion pending)
+
+## Learnings
+#### tools
+	- A11y in chrome dev tools gives the accessible DOM tree
+	- chrome lighthouse (doesn't give ful analysis)
 	- jaws (paid), or use system screen readers with eyes closed
-	- `eslint-plugin-jsx-a11y` (similar for html etc)
-## use correct HTML semantics like `nav`, `aside`
-	- a page should have only 1 `h1` tag
-	- main, aside, article, button (not everything should be a div)
-## A11y in chrome dev tools gives the accessible DOM tree
-## proper contrast ratio for better visual UX (available in dev tools colour picker)
+	- use `eslint-plugin-jsx-a11y` (similar for html etc)
+	- proper contrast ratio for better visual UX (available in dev tools colour picker)
 	- WCAG AA & AAA test pass (extension)
-## focus
+#### tips
+	- use correct HTML semantics like `nav`, `aside`
+	- a page should have only 1 `h1` tag
+	- use html tags like main, aside, article, button. Not everything should be a div.
 	- buttons etc are automatically tab focusable
-## inert for hidden components like side nav content, modal content
-	- essentially does tabIndex = -1 for all the children not on screen
-	- `aria-hidden=true`, `role=dialog`, `aria-modal=true` handle inertness automatically
-## *focus order* - write correct order of HTML, so that DOM order handles it
+	- *focus order* - write correct order of HTML, so that DOM order handles it
 	- else tabbing will jump focus wrongly on screen
 	- `autofocus` attribute - automatically focused on page reload (eg: google's search box)
-## use proper HTML for focus, but if manual intervention needed, use *tabIndex*
-	- tabIndex = 0
-		- makes any element focusable
-		- also programmatically by JS's focus()
-	- tabIndex = -1
-		- not in tab order, but focusable
-			- if we want to direct user to specific space
-	- tabIndex > 0
-		- avoid it, its an anti-pattern, screenreader order reads doesn't jump based on it
-		- to jump ahead than the natural tab order, eg: 3 -> 4 -> 5
-## *aria-labels* - we shouldn't use heavily, right HTML will handle it correctly
-	- but if needed, we've them
-	- giving role (like button or tab etc) to non semantic elements, for screen readers
-	- `aria-labelledby` - labelled by another element with that id (like label for & input id)
-	- `aria-label` - adding a label for screen readers
-
+	- use proper HTML for focus, but if manual intervention needed, use *tabIndex*
+		- tabIndex = 0
+			- makes any element focusable
+			- also programmatically by JS's focus()
+		- tabIndex = -1
+			- not in tab order, but focusable
+				- if we want to direct user to specific space
+		- tabIndex > 0
+			- avoid it, its an anti-pattern, screenreader order reads doesn't jump based on it
+			- to jump ahead than the natural tab order, eg: 3 -> 4 -> 5
+	- *aria-labels* - we shouldn't use heavily, right HTML will handle it correctly
+		- but if needed, we've them
+		- giving role (like button or tab etc) to non semantic elements, for screen readers
+		- `aria-labelledby` - labelled by another element with that id (like label for & input id)
+		- `aria-label` - adding a label for screen readers
+#### inert property for hidden components like side nav content, modal content
+	- thats essentially does tabIndex = -1 for all the children not on screen
+	- attributes like `aria-hidden=true`, `role=dialog`, `aria-modal=true` handle inertness automatically
 ## visual a11y (chrome dev tools -> rendering -> emulate visual deficiencies)
 	- blur (even with low/blurry vision, text content might be blur but hierarchy should make sense)
 	- contrast (all text colours should be readable)
@@ -69,10 +81,3 @@ coverImage: "https://images.unsplash.com/photo-1576864333223-db90dadfb975"
 ## css emulators for user preferences
 	- add the required media queries for user preferences like colour mode or reduce motions
 ## mobile responsiveness
-
-## resources studied
-	- [RSC_23m](https://youtu.be/VyWRmepESoQ?si=ydEtvTwmZ9D4MlMH)
-	- [WDS_13m](https://youtu.be/1A6SrPwmGpg?si=0BycOeGqJp9hLCsJ)
-	- [JSer_Tabs_43m](https://youtu.be/QKlJNuckVcU?si=9HjF374H_CYMO2la)
-	- [WDS_37m](https://youtu.be/2oiBKSjOOFE?si=FS9BwpnOq3eiSzmX)
-	- [Rob_Dodson_playlist](https://youtube.com/playlist?list=PLNYkxOF6rcICWx0C9LVWWVqvHlYJyqw7g&si=S-aokaqe6DcunXkf) (completion pending)

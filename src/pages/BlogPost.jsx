@@ -6,6 +6,8 @@ import { MDXProvider } from "@mdx-js/react";
 import remarkFrontmatter from "remark-frontmatter";
 import remarkGfm from "remark-gfm";
 import rehypeHighlight from "rehype-highlight";
+import remarkEmbedder from '@remark-embedder/core';
+import codesandboxTransformer from '../utils/codesandboxTransformer';
 
 const parseFrontmatter = (raw) => {
     const match = raw.match(/^---\n([\s\S]*?)\n---\n/);
@@ -44,7 +46,9 @@ const BlogPost = () => {
 
             const compiled = await compile(content, {
                 outputFormat: "function-body",
-                remarkPlugins: [remarkFrontmatter, remarkGfm],
+                remarkPlugins: [remarkFrontmatter, remarkGfm, [remarkEmbedder, {
+                    transformers: [codesandboxTransformer]
+                }]],
                 rehypePlugins: [rehypeHighlight],
                 useDynamicImport: false,
             });
